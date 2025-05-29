@@ -127,6 +127,11 @@ main {
     color: var(--accent);
 }
 
+.about-blurb p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
 .talk-list {
     max-width: 720px;
     margin-left: 0;
