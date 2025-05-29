@@ -1,17 +1,12 @@
-# Ignore the contents of the _site directory and other cache directories
-_site/
-.sass-cache/
+# This file tells Git which files and folders to ignore.
+# It helps keep system files, editor settings, and other local clutter
+# out of version control and off of GitHub.
 
-# Ignore the directory for local files during development
-local/
+# macOS system files
+.DS_Store
 
-# Ignore the Gemfile that is generated
-Gemfile.lock
+# VS Code settings folder
+.vscode/
 
-# Ignore files created by npm
-node_modules
-package-lock.json
-
-# Ignore the vendor file and bundle for alternative installation
-vendor/
-.bundle/
+# Dependency folders (e.g., if tooling is added later)
+node_modules/

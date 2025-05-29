@@ -1,0 +1,196 @@
+/* Basic layout: nav on left, content on right */
+
+/* Delete when Live -- this is debugging/editing style to outline items */
+
+/* * {
+  outline: 2px solid red;
+}
+
+/* End Debug code */
+
+/* Palette selection: coolers.co */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f5f5f5;           /* White smoke */
+  --text: #000000;         /* Black */
+  --date-bg: #000000;      /* Black */
+  --accent: #1b9aaa;       /* Blue (Munsell) */
+  --highlight: #e56399;    /* Thulian pink */
+  --nav-bg: #4e5166;       /* Davy's gray */
+  --nav-text: #f5f5f5;     /* White smoke */
+  --header-bg: #5a0001;    /* Rosewood */
+  --header-text: #ffffff;  /* White */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 1.5em 1em;
+}
+
+header h1 {
+    font-size: 2.6em;
+    margin-bottom: 0.5em;
+}
+
+.page {
+    display: flex;
+    height: 100%;
+}
+
+nav {
+    width: 240px;
+    height: 100vh;
+    height: 100dvh; /* overrides vh in supported browsers */
+    background-color: var(--nav-bg);
+    padding: 2em 1em 0 1em;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    font-weight: bold;
+    text-align: right;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--nav-text);
+    display: inline-block;
+    transition: color 1.0s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-divider {
+    border: none;
+    height: 2px;
+    background-color: var(--accent);
+    marign: 24px 6px 24px 6px;
+}
+
+main {
+    flex-grow: 1;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0 2em 0 2em;
+    width: 100%;
+}
+
+.about-blurb {
+    margin: 2em 2em 0 0;
+    max-width: 55ch;
+    text-align: justify;
+    font-size: 1em;
+    line-height: 1.2;
+}
+
+.about-blurb summary {
+    list-style: none; /* Firefox */
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-bottom: 0.5em;
+    transition: color 1s ease;
+}
+
+.about-blurb summary::-webkit-details-marker {
+    display: none;
+}
+
+.about-blurb summary:hover {
+    color: var(--accent);
+}
+
+.talk-list {
+    max-width: 720px;
+    margin-left: 0;
+    margin-right: 0;
+    display: grid;
+    row-gap: 3px;
+    padding: 0 4em 0 0;
+}
+
+.talk {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 3px;
+}
+
+.date {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    background-color: var(--date-bg);
+    color: var(--header-text);
+    text-align: right;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 6px;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.day {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--header-text);
+}
+
+.dow {
+    color: var(--bg);
+}
+
+.details {
+    grid-column: 2;
+    background-color: var(--accent);
+    color: var(--text);
+    padding: 2px 0px 4px 4px;
+    grid-row: 1 / span 2;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    line-height: 1.2;
+}
+
+.speaker {
+    padding: 4px 0 0 10px;
+    color: var(--text);
+}
+
+.title {
+    font-style: italic;
+    font-weight: bold;
+    font-size: large;
+    padding: 4px 0 0 10px;
+}
+
+.highlight {
+    font-weight: bold;
+    font-style: italic;
+    color: var(--highlight);
+}
