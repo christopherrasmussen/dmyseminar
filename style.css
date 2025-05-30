@@ -10,31 +10,42 @@
 
 /* Palette selection: coolers.co */
 
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 :root {
-  --bg: #f5f5f5;           /* White smoke */
-  --text: #000000;         /* Black */
-  --date-bg: #000000;      /* Black */
-  --accent: #1b9aaa;       /* Blue (Munsell) */
-  --highlight: #e56399;    /* Thulian pink */
-  --nav-bg: #4e5166;       /* Davy's gray */
-  --nav-text: #f5f5f5;     /* White smoke */
-  --header-bg: #5a0001;    /* Rosewood */
-  --header-text: #ffffff;  /* White */
+    --bg: #f5f5f5;
+    /* White smoke */
+    --text: #000000;
+    /* Black */
+    --date-bg: #000000;
+    /* Black */
+    --accent: #1b9aaa;
+    /* Blue (Munsell) */
+    --highlight: #e56399;
+    /* Thulian pink */
+    --nav-bg: #4e5166;
+    /* Davy's gray */
+    --nav-text: #f5f5f5;
+    /* White smoke */
+    --header-bg: #5a0001;
+    /* Rosewood */
+    --header-text: #ffffff;
+    /* White */
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100dvh;
-  width: 100vw;
-  overflow-x: hidden;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: sans-serif;
 }
 
 header {
@@ -51,14 +62,12 @@ header h1 {
 
 .page {
     display: flex;
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100dvh; /* allow the page to grow taller if needed */
 }
 
 nav {
     width: 240px;
-    height: 100vh;
-    height: 100dvh; /* overrides vh in supported browsers */
+    align-self: stretch; /* to make nav match .page */
     background-color: var(--nav-bg);
     padding: 2em 1em 0 1em;
 }
@@ -112,7 +121,7 @@ main {
 }
 
 .about-blurb summary {
-    list-style: none; /* Firefox */
+    list-style: none;        /* Firefox */
     font-weight: bold;
     font-size: 1.2em;
     cursor: pointer;
@@ -131,6 +140,10 @@ main {
 .about-blurb p {
     overflow-wrap: break-word;
     word-break: break-word;
+}
+
+section {
+    padding-bottom: 48px;
 }
 
 .talk-list {
@@ -211,10 +224,50 @@ main {
     nav {
         width: 100%;
         min-height: auto;
+        padding: 0.5em;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;     /* should right-align entire row */
+        flex-wrap: wrap;
+        gap: 0.25em;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links li {
+        display: inline;
+        width: auto;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+        font-size: 0.75em;
+        list-style: none;
+    }
+
+.nav-links li + li::before {
+    content: "\2022";
+    margin: 0 0.5em;
+    color: var(--accent);
+}
+
+.nav-links li:last-child {
+    padding-right: 1.5em;
+}
+
+    .nav-links a {
+        text-decoration: none;
+        color: var(--nav-text);
+        padding: 0.5em;
+    }
+
+    nav hr {
+        display: none;
     }
 
     main {
         padding-bottom: 2em;
-    }
     }
 }
