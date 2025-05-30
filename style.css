@@ -158,6 +158,20 @@ main {
     word-break: break-word;
 }
 
+section p {
+    max-width: 66ch;
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.2;
+    margin: 2rem 2rem 2rem 0;
+}
+
+section a {
+    text-decoration: none;
+    color: var(--nav-text);
+    transition: color 1.0s ease;
+}  
+
 .monospace {
     font-family: monospace;
     font-size: 0.8rem;
