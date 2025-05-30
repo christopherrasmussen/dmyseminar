@@ -326,6 +326,14 @@ section {
         display: none;
     }
 
+    nav .logo-box {
+        display: none;
+    }
+
+    nav .logo {
+        display: none;
+    }
+
     main {
         padding-bottom: 2rem;
     }
