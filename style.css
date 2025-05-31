@@ -35,6 +35,7 @@
     /* Rosewood */
     --header-text: #ffffff;
     /* White */
+    --blendpoint: #b07b7b;
 }
 
 body {
@@ -46,7 +47,7 @@ body {
     background-color: var(--bg);
     color: var(--text);
     font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 header {
@@ -54,6 +55,7 @@ header {
     color: var(--header-text);
     text-align: center;
     padding: 1.5rem 1rem;
+    background: linear-gradient(to bottom, var(--header-bg) 0%, var(--blendpoint) 100%);
 }
 
 header h1 {
@@ -67,10 +69,12 @@ header h1 {
 }
 
 nav {
+    flex: 0 0 240px;
     width: 240px;
     align-self: stretch; /* to make nav match .page */
-    background-color: var(--nav-bg);
-    padding: 2rem 1rem 0 1rem;
+    /* background-color: var(--nav-bg); */
+    padding: 2rem 0 0 0;
+    background: linear-gradient(to bottom, var(--blendpoint) 0%, var(--nav-bg) 25%);
 }
 
 .nav-links {
@@ -88,6 +92,7 @@ nav {
 
 .nav-links a {
     text-decoration: none;
+    padding: 0 20px 0 0;
     color: var(--nav-text);
     display: inline-block;
     transition: color 1.0s ease;
@@ -99,6 +104,9 @@ nav {
 
 .logo-box {
   background-color: white;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo {
@@ -109,7 +117,7 @@ nav {
     margin-right: auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    outline: 1px solid var(--nav-bg);
+    outline: 1px solid var(--highlight);
 }
 
 .nav-divider {
@@ -126,20 +134,36 @@ main {
     line-height: 1.6;
     padding: 2rem 0 0 2rem;
     width: 100%;
+    background: linear-gradient(to bottom, var(--blendpoint) 0%, var(--bg) 15%);
 }
 
-.about-blurb {
-    margin: 0 2rem 2rem 0;
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--highlight);
+    transition: color 1.0s ease;
+}
+
+main h2 {
+    font-size: 1.4rem;
+    margin: 0 3rem 1rem 0;
+    line-height: 1.1;
+}
+
+main p {
+    margin: 0 3rem 2rem 0;
     max-width: 66ch;
     text-align: justify;
     font-size: 1rem;
     line-height: 1.2;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .about-blurb summary {
     list-style: none;        /* Firefox */
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     cursor: pointer;
     margin-bottom: 0.5rem;
     transition: color 1s ease;
@@ -151,11 +175,6 @@ main {
 
 .about-blurb summary:hover {
     color: var(--accent);
-}
-
-.about-blurb p {
-    overflow-wrap: break-word;
-    word-break: break-word;
 }
 
 section p {
@@ -178,12 +197,14 @@ section a {
 }
 
 .contact-list dt {
-    font-weight: bold;
-    margin-top: 1rem;
+    font-weight: normal;
+    margin-top: 1.0rem;
+    margin-bottom: 0;
 }
 
 .contact-list dd {
-    margin: 0 0 0.5rem 0rem;
+    margin: 0 0 0 0rem;
+    line-height: 1.0;
 }
 
 section {
@@ -191,15 +212,16 @@ section {
 }
 
 .subtopic {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 0;
+    margin-bottom: 0.8rem;
 }
 
 .talk-list {
     max-width: 660px;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 2rem;
     display: grid;
     row-gap: 3px;
     padding: 0 2rem 0 0;
@@ -208,13 +230,11 @@ section {
 .talk {
     display: grid;
     grid-template-columns: 50px 1fr;
-    grid-template-rows: auto auto;
+    align-items: stretch;
     column-gap: 3px;
 }
 
 .date {
-    grid-column: 1;
-    grid-row: 1 / span 2;
     background-color: var(--date-bg);
     color: var(--header-text);
     text-align: right;
@@ -223,6 +243,7 @@ section {
     padding: 6px;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+    height: 100%;
 }
 
 .day {
@@ -233,6 +254,11 @@ section {
 
 .dow {   /* dow = Day of Week */
     color: var(--bg);
+    font-weight: bold;
+}
+
+.dow.exception {
+    color: #ff7700;
 }
 
 .month {
@@ -241,35 +267,51 @@ section {
 }
 
 .details {
-    grid-column: 2;
     background-color: var(--accent);
     color: var(--text);
-    padding: 2px 0px 4px 4px;
-    grid-row: 1 / span 2;
+    padding: 2px 0px 4px 8px;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     line-height: 1.2;
 }
 
 .speaker {
-    padding: 4px 0 0 10px;
-    color: var(--text);
+    padding: 0px 0 0 0;
 }
 
 .name {
-    font-weight: 400;
+    font-weight: bold;
 }
 
 .title {
     font-style: italic;
     font-weight: bold;
-    font-size: large;
-    padding: 4px 0 0 10px;
+    font-size: 1.1rem;
+    padding: 6px 0 0 0;
+}
+
+.abstract {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 2.0s ease, opacity 2.0s ease;
+    font-size: 0.85rem;
+    padding: 0.3rem 0px;
+    line-height: 1.3;
+}
+.details:hover .abstract {
+    max-height: 200px;  /* large enough for most abstracts */
+    opacity: 1;
+}
+
+.zoominfo {
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 12px 0 0 0;
 }
 
 .highlight {
     font-weight: bold;
-    font-style: italic;
     color: var(--highlight);
 }
 
@@ -282,22 +324,25 @@ section {
 
     nav {
         width: 100%;
+        flex: none;
         min-height: auto;
-        padding: 0.5rem;
+        padding: 0;
+        margin: 0;
+        background: var(--nav-bg);
     }
 
     .nav-links {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;     /* should right-align entire row */
-        flex-wrap: wrap;
+        justify-content: flex-end;     
+        flex-wrap: nowrap;
         gap: 0.25rem;
         padding: 0;
         margin: 0;
     }
 
     .nav-links li {
-        display: inline;
+        display: inline-block;
         width: auto;
         margin: 0;
         padding: 0;
@@ -317,21 +362,26 @@ section {
 }
 
     .nav-links a {
+        display: inline-block;
         text-decoration: none;
         color: var(--nav-text);
         padding: 0.5rem;
+        line-height: 1;
     }
 
     nav hr {
         display: none;
+        height: 0;
     }
 
     nav .logo-box {
         display: none;
+        height: 0;
     }
 
     nav .logo {
         display: none;
+        height: 0;
     }
 
     main {
